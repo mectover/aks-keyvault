@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  annotations:
+    azure.workload.identity/client-id: "" #az identity show -g aks-vault-rg --name secretsprovider-aks-keyvault-demo --query 'clientId' -o tsv
+
+  name: workload-identity-sa
+  namespace: default
