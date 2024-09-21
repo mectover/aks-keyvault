@@ -6,6 +6,8 @@
 .terraform/
 *.tfplan
 
+*.terraform.lock.hcl.*
+
 # Sensitive files
 *.pem
 *.key
