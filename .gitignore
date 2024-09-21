@@ -5,8 +5,8 @@
 *.tfvars.json
 .terraform/
 *.tfplan
-
 *.terraform.lock.hcl.*
+.terraform.lock.hcl
 
 # Sensitive files
 *.pem
