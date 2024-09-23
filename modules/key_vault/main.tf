@@ -37,21 +37,7 @@ resource "azurerm_key_vault" "main" {
   resource_group_name = var.rg_name
   tenant_id           = data.azurerm_client_config.current.tenant_id
   sku_name            = "standard"
-#   access_policy {
-#     tenant_id = data.azurerm_client_config.current.tenant_id
-#     object_id = data.azurerm_client_config.current.object_id
-
-# secret_permissions = [
-#     "Get",    # Read the secret value
-#     "List",   # List all secrets
-#     "Set",    # Create or update a secret
-#     "Delete", # Delete a secret
-#     "Recover", # Recover a deleted secret
-#     "Backup",  # Backup a secret
-#     "Restore"  # Restore a backed-up secret
-#   ]  
-#   }
-enable_rbac_authorization = true
+  enable_rbac_authorization = true
 
 
 
@@ -59,11 +45,11 @@ enable_rbac_authorization = true
 
 
 
-# resource "azurerm_key_vault_secret" "mysql_db_password" {
-#   name         = "MYSQL-DB-PASSWORD"  # Name of the secret with prefix
-#   value        = var.mysql_db_password        # Reference the variable
-#   key_vault_id = azurerm_key_vault.main.id
-# }
+resource "azurerm_key_vault_secret" "mysql_db_password" {
+  name         = "MYSQL-DB-PASSWORD"  # Name of the secret with prefix
+  value        = var.mysql_db_password        # Reference the variable
+  key_vault_id = azurerm_key_vault.main.id
+}
 
 # Private Endpoint for Key Vault
 resource "azurerm_private_endpoint" "key_vault" {
